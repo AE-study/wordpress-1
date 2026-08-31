@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Contact | Winston International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="l-hasBottomNav">
+	<header class="header">
+		<div class="header__inner">
+			<h1 class="header__logo">
+				<a href="index.html"><img src="img/b54bddda57772af5dc364b6a5953eb5bfe8803cc.png" alt="Winston International"></a>
+			</h1>
+			<nav class="header__nav">
+				<ul class="header__list">
+					<li class="header__item"><a href="index.html">TOP</a></li>
+					<li class="header__item"><a href="about.html">About</a></li>
+					<li class="header__item"><a href="course.html">Course</a></li>
+					<li class="header__item"><a href="journey.html">Journey</a></li>
+					<li class="header__item"><a href="news.html">News</a></li>
+					<li class="header__item"><a href="access.html">Access</a></li>
+					<li class="header__item header__item--cta"><a href="contact.html">体験予約</a></li>
+				</ul>
+			</nav>
+			<button class="header__hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+		</div>
+	</header>
+
+	<div class="pageTitle">
+		<span class="pageTitle__en">Contact</span>
+		<span class="pageTitle__jp">お問い合わせ</span>
+		<span class="pageTitle__rule"></span>
+	</div>
+
+	<main>
+		<div class="steps">
+			<div class="steps__step is-active"><div class="steps__circle">入力</div></div>
+			<div class="steps__connector"></div>
+			<div class="steps__step"><div class="steps__circle">確認</div></div>
+			<div class="steps__connector"></div>
+			<div class="steps__step"><div class="steps__circle">完了</div></div>
+		</div>
+
+		<form class="contactForm" action="contact-thanks.html" method="get">
+			<div class="contactForm__field">
+				<label>お名前 <span class="contactForm__badge">必須</span></label>
+				<input type="text" name="name" required>
+			</div>
+			<div class="contactForm__field">
+				<label>電話番号 <span class="contactForm__badge">必須</span></label>
+				<input type="tel" name="tel" required>
+			</div>
+			<div class="contactForm__field">
+				<label>e-mail <span class="contactForm__badge">必須</span></label>
+				<input type="email" name="email" required>
+			</div>
+			<div class="contactForm__field">
+				<label>小学校名 <span class="contactForm__badge">必須</span></label>
+				<input type="text" name="school" required>
+			</div>
+			<div class="contactForm__field">
+				<label>お問合せ内容 <span class="contactForm__badge">必須</span></label>
+				<textarea name="message" required></textarea>
+			</div>
+			<div class="contactForm__submitRow">
+				<button type="submit" class="contactForm__submit">送信</button>
+			</div>
+		</form>
+	</main>
+
+	<footer class="footer">
+		<img class="footer__logo" src="img/38c959812c3885d58e4ab08fb189ace73b198ea6.png" alt="Winston International">
+		<p class="footer__copy">© ｗinston international</p>
+	</footer>
+
+	<nav class="bottomNav">
+		<a class="bottomNav__item" href="index.html">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+			ホーム
+		</a>
+		<a class="bottomNav__item" href="course.html">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+			コース
+		</a>
+		<a class="bottomNav__item" href="access.html">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+			アクセス
+		</a>
+		<a class="bottomNav__item is-active" href="contact.html">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>
+			体験予約
+		</a>
+	</nav>
+
+</body>
+</html>

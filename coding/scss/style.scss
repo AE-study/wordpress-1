@@ -1,0 +1,1116 @@
+/* --------------------------------------------------------
+    ベース設定
+-------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  color: #614D3C;
+  font-weight: normal;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  letter-spacing: 0.03em;
+}
+
+p {
+  line-height: 1.8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  &:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------------------------------
+    ページレイアウト
+-------------------------------------------------------- */
+.container {
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* --------------------------------------------------------
+    共通パーツ
+-------------------------------------------------------- */
+.blockTitle {
+  text-align: center;
+  margin: 0 0 40px;
+  &__en {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 4rem;
+    font-weight: 500;
+    color: #614D3C;
+    line-height: 1.2;
+  }
+  &__jp {
+    display: block;
+    font-size: 1.5rem;
+    color: #3B342F;
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+  }
+  &__rule {
+    display: block;
+    width: 100%;
+    max-width: 361px;
+    height: 2px;
+    margin: 20px auto 0;
+    background: #EB6A35;
+  }
+  &--sage &__rule {
+    background: #8F9E8B;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    margin-bottom: 24px;
+    &__en {
+      font-size: 2.8rem;
+    }
+    &__jp {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.subheading {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  color: #737070;
+  margin: 0 0 32px;
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+.readMore {
+  display: block;
+  width: fit-content;
+  margin: 32px auto 0;
+  font-size: 1.4rem;
+  color: #F8CED5;
+  position: relative;
+  padding-bottom: 18px;
+  font-weight: 500;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%) rotate(45deg);
+    border-right: 2px solid #614D3C;
+    border-bottom: 2px solid #614D3C;
+  }
+}
+
+.leaf {
+  position: absolute;
+  pointer-events: none;
+}
+
+.pageTitle {
+  background: #C482C6;
+  color: #ffffff;
+  text-align: center;
+  padding: 56px 20px;
+  &__en {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 4.4rem;
+    font-weight: 500;
+  }
+  &__jp {
+    display: block;
+    font-size: 1.6rem;
+    margin-top: 14px;
+    letter-spacing: 0.08em;
+  }
+  &__rule {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: 2px;
+    margin: 16px auto 0;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 32px 20px 26px;
+    &__en {
+      font-size: 3rem;
+    }
+    &__jp {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    ヘッダー
+-------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 40px;
+  }
+  &__logo img {
+    width: 90px;
+    height: auto;
+  }
+  &__nav {
+    display: block;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  &__item {
+    a {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #614D3C;
+    }
+    &--cta a {
+      background: #F8CED5;
+      color: #614D3C;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+  }
+  &__hamburger {
+    display: none;
+    width: 32px;
+    flex-direction: column;
+    gap: 9px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 0;
+    span {
+      display: block;
+      height: 2px;
+      background: #614D3C;
+      border-radius: 1px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__inner {
+      padding: 0 20px;
+    }
+    &__list {
+      gap: 18px;
+    }
+    &__item a {
+      font-size: 1.3rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    &__inner {
+      height: 70px;
+      padding: 0 16px;
+    }
+    &__logo img {
+      width: 63px;
+    }
+    &__nav {
+      display: none;
+    }
+    &__hamburger {
+      display: flex;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    フッター／ボトムナビ
+-------------------------------------------------------- */
+.footer {
+  background: #C482C6;
+  text-align: center;
+  padding: 48px 20px 32px;
+  &__logo {
+    width: 168px;
+    margin: 0 auto 24px;
+  }
+  &__copy {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+  }
+}
+
+.bottomNav {
+  display: none;
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #F7EFE0;
+    z-index: 90;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+  }
+  &__item {
+    @media screen and (max-width: 768px) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 11px 0;
+      color: #614D3C;
+      font-size: 1rem;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+      &.is-active {
+        background: #D9D9D9;
+      }
+    }
+  }
+}
+
+.l-hasBottomNav {
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding-bottom: 65px;
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: mv（メインビジュアル）
+-------------------------------------------------------- */
+.mv {
+  position: relative;
+  height: 56vh;
+  max-height: 620px;
+  min-height: 340px;
+  overflow: hidden;
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  &__cta {
+    position: relative;
+    z-index: 2;
+    margin: -90px auto 0;
+    width: 60%;
+    max-width: 560px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    @media screen and (max-width: 1024px) {
+      //画面サイズが1024px以下の時
+      width: 76%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    &__image {
+      height: auto;
+      object-fit: initial;
+    }
+    &__cta {
+      width: 88%;
+      margin-top: -16vw;
+      border-radius: 12px;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: news（お知らせセクション）
+-------------------------------------------------------- */
+.news {
+  position: relative;
+  padding: 80px 0;
+  &__list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  &__item {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 18px 12px;
+    border-bottom: 1px solid #eee;
+  }
+  &__date {
+    font-size: 1.4rem;
+    color: #3B342F;
+    white-space: nowrap;
+    width: 110px;
+    flex-shrink: 0;
+  }
+  &__text {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #3B342F;
+    line-height: 1.6;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+    &__item {
+      gap: 16px;
+    }
+    &__date {
+      width: auto;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    共通: journey（英語成長日記カード）
+-------------------------------------------------------- */
+.journey {
+  position: relative;
+  padding: 80px 0;
+  &__list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  &__item,
+  &__item--reverse {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  &__item--reverse {
+    flex-direction: row-reverse;
+  }
+  &__image {
+    width: 32%;
+    max-width: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  &__text {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #614D3C;
+    white-space: pre-line;
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__item,
+    &__item--reverse {
+      gap: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+    &__list {
+      gap: 20px;
+    }
+    &__item,
+    &__item--reverse {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 14px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    &__item--reverse {
+      flex-direction: row-reverse;
+    }
+    &__image {
+      width: 38%;
+      max-width: 135px;
+    }
+    &__text {
+      font-size: 1.3rem;
+      align-self: center;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    TOP/course: course（コースセクション）
+-------------------------------------------------------- */
+.course {
+  position: relative;
+  padding: 80px 0;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  &__card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+  &__image {
+    width: 100%;
+    aspect-ratio: 160/130;
+    object-fit: cover;
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #C482C6;
+    color: #614D3C;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    white-space: pre-line;
+    min-height: 46px;
+    padding: 8px 10px;
+    font-weight: 500;
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+    &__grid {
+      gap: 12px;
+    }
+    &__label {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: schedule（デイリースケジュール）
+-------------------------------------------------------- */
+.schedule {
+  position: relative;
+  padding: 80px 0;
+  text-align: center;
+  &__image {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: features（スクールの特徴・ミニ版）
+-------------------------------------------------------- */
+.features {
+  position: relative;
+  padding: 80px 0;
+  &__list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  &__badge {
+    position: relative;
+    width: 90px;
+    height: 81px;
+    border-radius: 50%;
+    background: #8F9E8B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  &__num {
+    font-size: 2.8rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  &__crown {
+    position: absolute;
+    top: -6px;
+    right: 2px;
+    font-size: 2.2rem;
+  }
+  &__text {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #614D3C;
+    white-space: pre-line;
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+    &__text {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: sns
+-------------------------------------------------------- */
+.sns {
+  position: relative;
+  padding: 80px 0;
+  background: #fbf8f3;
+  &__grid {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1.2;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 40px 16px;
+    &__grid {
+      gap: 6px;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    TOP: faq
+-------------------------------------------------------- */
+.faq {
+  position: relative;
+  padding: 60px 0;
+  &__list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__item {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 50px 18px 20px;
+      font-size: 1.4rem;
+      color: #000;
+      line-height: 1.5;
+      position: relative;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        margin-top: -6px;
+        border-right: 2px solid #614D3C;
+        border-bottom: 2px solid #614D3C;
+        transform: rotate(45deg);
+        transition: transform 0.2s;
+      }
+    }
+    &[open] summary::after {
+      transform: rotate(225deg);
+      margin-top: -2px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 30px 16px;
+  }
+}
+
+/* --------------------------------------------------------
+    ABOUT
+-------------------------------------------------------- */
+.greeting {
+  padding: 60px 0 80px;
+  text-align: center;
+  &__deco {
+    width: 160px;
+    margin: 0 auto 32px;
+  }
+  &__text {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: 'Rum Raisin', serif;
+    font-size: 1.6rem;
+    line-height: 2.1;
+    color: #000;
+    white-space: pre-line;
+    text-align: left;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 24px 16px 40px;
+    &__text {
+      font-size: 1.4rem;
+      line-height: 2;
+    }
+  }
+}
+
+.featureList {
+  padding: 60px 0 80px;
+  background: #fbf8f3;
+  &__deco {
+    width: 160px;
+    margin: 0 auto 32px;
+    display: block;
+  }
+  &__grid {
+    max-width: 940px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  &__item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding-top: 10px;
+    overflow: hidden;
+    &::before {
+      content: "";
+      display: block;
+      height: 10px;
+      background: #BDE3B2;
+      margin: 0 -1px 18px;
+    }
+  }
+  &__inner {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 0 16px 20px;
+  }
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  &__title {
+    font-family: 'Kablammo', cursive;
+    font-size: 1.6rem;
+    color: #614D3C;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  &__text {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #614D3C;
+    margin: 0;
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__grid {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 24px 0 40px;
+    &__grid {
+      padding: 0 16px;
+    }
+  }
+}
+
+/* --------------------------------------------------------
+    COURSE
+-------------------------------------------------------- */
+.lessonGroup {
+  padding: 60px 0;
+  &--afterschool {
+    background-color: #fdf1f6;
+  }
+  &--english {
+    background-color: #f6f0fd;
+  }
+  &--programming {
+    background-color: #fffaf0;
+  }
+  &__title {
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin: 0 0 32px;
+    white-space: pre-line;
+    line-height: 1.4;
+  }
+  &--afterschool &__title {
+    color: #614D3C;
+  }
+  &--english &__title,
+  &--programming &__title {
+    color: #8A38F5;
+  }
+  &__list {
+    max-width: 940px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media screen and (max-width: 1024px) {
+    //画面サイズが1024px以下の時
+    &__list {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 30px 0 40px;
+    &__title {
+      font-size: 2.2rem;
+      padding: 0 16px;
+    }
+    &__list {
+      padding: 0 16px;
+    }
+  }
+}
+
+.lessonCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  &__name {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 18px 12px;
+    white-space: pre-line;
+  }
+  .lessonGroup--afterschool & &__name {
+    background: #FD58C1;
+  }
+  .lessonGroup--english & &__name {
+    background: #8A38F5;
+  }
+  .lessonGroup--programming & &__name {
+    background: #FFD147;
+    color: #614D3C;
+  }
+  &__image {
+    width: 195px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 24px auto;
+  }
+  &__desc {
+    padding: 0 20px 24px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #614D3C;
+    white-space: pre-line;
+  }
+  &__table {
+    padding: 0 24px 28px;
+  }
+  &__row {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid #eee;
+    font-size: 1.3rem;
+    color: #3B342F;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  &__label {
+    width: 70px;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  &__value {
+    flex: 1;
+    white-space: pre-line;
+  }
+}
+
+/* --------------------------------------------------------
+    CONTACT
+-------------------------------------------------------- */
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px 20px;
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #000;
+  }
+  &__step.is-active &__circle {
+    background: #F8CED5;
+    font-weight: 700;
+  }
+  &__connector {
+    width: 80px;
+    height: 2px;
+    background: #D9D9D9;
+    margin: 35px -2px 0;
+    align-self: flex-start;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 36px 16px 8px;
+    &__circle {
+      width: 60px;
+      height: 60px;
+      font-size: 1.3rem;
+    }
+    &__connector {
+      width: 60px;
+      margin-top: 30px;
+    }
+  }
+}
+
+.contactForm {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  &__field {
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      background: #D9D9D9;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 1.5rem;
+      font-family: inherit;
+      color: #000;
+    }
+    textarea {
+      background: rgba(255, 255, 255, 0.9);
+      min-height: 100px;
+      resize: vertical;
+    }
+  }
+  &__badge {
+    background: red;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  &__submitRow {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 40px;
+  }
+  &__submit {
+    width: 160px;
+    padding: 13px 0;
+    text-align: center;
+    background: #F8CED5;
+    color: #614D3C;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.6rem;
+    font-family: inherit;
+    cursor: pointer;
+  }
+}
+
+.thanks {
+  padding: 120px 24px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #000;
+  line-height: 1.8;
+  &__link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 1.4rem;
+    color: #614D3C;
+    text-decoration: underline;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 80px 20px;
+  }
+}
+
+/* --------------------------------------------------------
+    ACCESS
+-------------------------------------------------------- */
+.accessMap {
+  padding: 60px 0 0;
+  img {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 24px 16px 0;
+  }
+}
+
+.infoList {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  &__row {
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #614D3C;
+  }
+  &__label {
+    flex-shrink: 0;
+    width: 110px;
+    font-weight: 700;
+  }
+  &__value {
+    margin: 0;
+    white-space: pre-line;
+  }
+  @media screen and (max-width: 768px) {
+    //画面サイズが768px以下の時
+    padding: 24px 16px 40px;
+  }
+}
